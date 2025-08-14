@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from datetime import date
 from datetime import timedelta
+from django.utils import timezone
 
 # Create your views here.
 
 
 def index(request):
+
     dia0 = date.today()
     dia1 = dia0+timedelta(days=1)
     dia2 = dia0+timedelta(days=2)
@@ -22,5 +24,6 @@ def index(request):
         "dia4": dia4,
         "dia5": dia5,
         "dia6": dia6,
-        "dia7": dia7
+        "dia7": dia7,
+
     })
