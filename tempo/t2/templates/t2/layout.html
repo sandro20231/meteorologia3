@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tempo aqui</title>
     <link rel="stylesheet" href="{% static 't2/estilo.css' %}">
+    <script src="{% static 't2/script.js' %}"></script>
 </head>
 
 <body>
@@ -14,13 +15,16 @@
         <h1 id="tituloPrincipal">Tempo Aqui</h1>
     </header>
     <nav>
-        <a href="#">Início</a>
-        <a href="#">login</a>
-        <a href="#">Logout</a>
+        <a href="{% url 'index' %}">Início</a>
+        <a href="{% url 'login' %}">login</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'registrar' %}">Novo usuário</a>
         <a href="#">Adicione seu local</a>
+
     </nav>
     {% block body %}
     {% endblock %}
+    <script src="{% static 't2/script.js' %}"></script>
     <footer>
         <p>Produzido por Sandro da Paixão Coelho sandrocoelho2023a@gmail.com </p>
     </footer>

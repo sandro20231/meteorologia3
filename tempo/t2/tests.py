@@ -10,3 +10,9 @@ class Testes(TestCase):
         c = Client()
         response = c.get("/")
         self.assertEqual(response.status_code, 200)
+
+    def test_login(self):
+        """Testando se abre login"""
+        c = Client()
+        response = c.get("/login/")
+        self.assertEqual(response.status_code, 200)

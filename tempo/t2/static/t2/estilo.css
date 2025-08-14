@@ -3,7 +3,9 @@
 
 }
 
-
+.hide {
+    display: none;
+}
 
 
 #tituloPrincipal {
@@ -93,6 +95,7 @@ th {
     margin: 5px;
     padding: 5px;
     width: 250px;
+
 }
 
 .tempo7d {

@@ -1,0 +1,16 @@
+{% extends "t2/layout.html" %}
+{% block body %}
+<h2>Complete seu acesso:</h2>
+<form action="{% url 'registrar' %}" method="post">
+    {% csrf_token %}
+    <label><strong>Usuário:</strong></label><br>
+    <input type="text" name="usernameRegistro"><br>
+    <label><strong>Email</strong></label><br>
+    <input type="email" name="emailRegistro"><br>
+    <label><strong>Senha:</strong></label><br>
+    <input type="password" name="passwordRegistro"><br>
+    <label><strong>Confirme a senha:</strong></label>
+    <input type="password" name="passwordRegistro2"><br>
+    <button type="submit" id="btnRegistro">Cadstrar</button>
+</form>
+{% endblock %}
