@@ -1,4 +1,193 @@
 {% extends "t2/layout.html" %}
 {% block body %}
+<div class="NovoLocal" id="NovoLocal">
+    <h2>Insira um novo local aqui:</h2>
+    <form action="#" method="post">
+        {% csrf_token %}
+        <label>Nome do local</label><br>
+        <input type="text" name="nomeLocal" placeholder="Dê um nome ao local"><br>
+        <label>Latitude:</label><br>
+        <input type="text" name="latitude" placeholder="latitude"><br>
+        <label>Longitude:</label><br>
+        <input type="text" name="longitude" placeholder="longitude"><br>
+        <button type="submit">Enviar novo local</button>
+    </form>
+    <hr>
+</div>
+<div class="pesquisando-local">
+    <div class="local-digitado">
+        <h2>Pesquise seu local digitando os dados:</h2>
+        <form>
+            <label>Latitude:</label>
+            <input type="text" id="latitudeScript">
+            <label>Longitude:</label>
+            <input type="text" id="longitudeScript"><br>
+            <button id="btnBuscaLocalDigitadoScript">Buscar</button>
+        </form>
+        <hr>
+    </div>
+    <div class="local-selection">
+        <h2>Ou busque em um de seus locais salvos:</h2>
+        <label>Local salvo:</label><br>
+        <select name="seleção">
+            <option value="#">#</option>
+        </select><br>
+        <button id="btnBuscarLocalSalvoScript">Buscar</button>
+        <hr>
+    </div>
+
+</div>
+<div class="tempoAgora">
+    <h2>{{dia0}}</h2>
+    <h2>Condições do tempo Agora:</h2>
+    <p><strong>Temperatura:</strong></p>
+    <p id="scriptTemperaturaAgora"></p>
+    <p><strong>Velocidade do vento:</strong></p>
+    <p id="scriptVelocidadedoVentoAgora"></p>
+    <p><strong>Precipitação total:</strong></p>
+    <p id="scriptPrecipitacaoTotalAgora"></p>
+    <p><strong>Condição meteorológica:</strong></p>
+    <p id="scriptCondicaoMeteorologicaAgora"></p>
+    <p><strong>Velocidade do Vento:</strong></p>
+    <p id="scirptVelocidadeVentoAgora"></p>
+    <p><strong>Direção do vento:</strong></p>
+    <p id="scirptDirecaoVentoAgora"></p>
+    <p><strong>Umidade Relativa:</strong></p>
+    <p id="scriptUmidadeRelativaAgora"></p>
+    <hr>
+</div>
+<div class="tempo24h">
+    <h2>Previsão do tempo para as próximas 24 horas:</h2>
+    <div class="1h">
+        
+    </div>
+</div>
+<div class="tempo7d">
+    <h2>Previsão para os próximos sete dias:</h2>
+    <div class="1d">
+        <h2>{{dia1}}</h2>
+        <p><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura1"></p>
+        <p><strong>Velocidade do vento:</strong></p>
+        <p id="scriptVelocidadedoVento1"></p>
+        <p><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal1"></p>
+        <p><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica1"></p>
+        <p><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento1"></p>
+        <p><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento1"></p>
+        <p><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa1"></p>
+
+    </div>
+    <div class="2d">
+        <h2>{{dia2}}</h2>
+        <p><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura2"></p>
+        <p><strong>Velocidade do vento:</strong></p>
+        <p id="scriptVelocidadedoVento2"></p>
+        <p><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal2"></p>
+        <p><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica2"></p>
+        <p><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento2"></p>
+        <p><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento2"></p>
+        <p><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa2"></p>
+    </div>
+    <div class="3d">
+        <h2>{{dia3}}</h2>
+        <p><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura3"></p>
+        <p><strong>Velocidade do vento:</strong></p>
+        <p id="scriptVelocidadedoVento3"></p>
+        <p><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal3"></p>
+        <p><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica3"></p>
+        <p><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento3"></p>
+        <p><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento3"></p>
+        <p><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa3"></p>
+    </div>
+    <div class="4d">
+        <h2>{{dia4}}</h2>
+        <p><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura4"></p>
+        <p><strong>Velocidade do vento:</strong></p>
+        <p id="scriptVelocidadedoVento4"></p>
+        <p><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal4"></p>
+        <p><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica4"></p>
+        <p><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento4"></p>
+        <p><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento4"></p>
+        <p><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa4"></p>
+    </div>
+    <div class="5d">
+        <h2>{{dia5}}</h2>
+        <p><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura5"></p>
+        <p><strong>Velocidade do vento:</strong></p>
+        <p id="scriptVelocidadedoVento5"></p>
+        <p><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal5"></p>
+        <p><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica5"></p>
+        <p><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento5"></p>
+        <p><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento5"></p>
+        <p><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa5"></p>
+    </div>
+    <div class="6d">
+        <h2>{{dia6}}</h2>
+        <p><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura6"></p>
+        <p><strong>Velocidade do vento:</strong></p>
+        <p id="scriptVelocidadedoVento6"></p>
+        <p><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal6"></p>
+        <p><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica6"></p>
+        <p><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento6"></p>
+        <p><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento6"></p>
+        <p><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa6"></p>
+    </div>
+    <div class="7d">
+        <h2>{{dia7}}</h2>
+        <p><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura7"></p>
+        <p><strong>Velocidade do vento:</strong></p>
+        <p id="scriptVelocidadedoVento7"></p>
+        <p><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal7"></p>
+        <p><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica7"></p>
+        <p><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento7"></p>
+        <p><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento7"></p>
+        <p><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa7"></p>
+    </div>
+    <hr>
+</div>
+
+</div>
+
 
 {% endblock %}
