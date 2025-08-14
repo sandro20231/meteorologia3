@@ -16,6 +16,7 @@ def index(request):
     dia5 = dia0+timedelta(days=5)
     dia6 = dia0+timedelta(days=6)
     dia7 = dia0+timedelta(days=7)
+    
     return render(request, "t2/index.html", {
         "dia0": dia0,
         "dia1": dia1,

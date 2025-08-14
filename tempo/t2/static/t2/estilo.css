@@ -1,0 +1,116 @@
+* {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+
+}
+
+
+
+
+#tituloPrincipal {
+    text-align: center;
+    color: white;
+    padding: 5px;
+    border: 2px solid #ffe082;
+    border-radius: 10px;
+}
+
+#estilot1,
+#estilot2,
+#estilot3,
+#estilot4,
+#estilot5,
+#estilot6,
+#estilot7 {
+    text-align: center;
+    color: white;
+    padding: 5px;
+    border: 2px solid #ffe082;
+    border-radius: 10px;
+}
+
+#estiloForm1,
+#estiloForm2,
+#estiloForm3,
+#estiloForm4 {
+
+    border: 2px solid #ffe082;
+    border-radius: 10px;
+    color: #333;
+    text-align: center;
+    padding: 5px;
+
+}
+
+input,
+select {
+    border-radius: 10px;
+}
+
+
+textarea {
+    border-radius: 10px;
+}
+
+button {
+    border-radius: 10px;
+    width: 30%;
+}
+
+#estiloForm4 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.estiloPrevisaoAgora {
+    border: 2px solid #ffe082;
+    border-radius: 10px;
+    padding: 5px;
+    width: 250px;
+
+}
+
+td,
+th {
+    border: 2px solid #ffe082;
+    border-radius: 10px;
+}
+
+#tabelaHorariaPai {
+    border-collapse: collapse;
+}
+
+.d1,
+.d2,
+.d3,
+.d4,
+.d5,
+.d6,
+.d7 {
+    border: 2px solid #ffe082;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    width: 250px;
+}
+
+.tempo7d {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.agorapai {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer {
+    border: 2px solid #ffe082;
+    border-radius: 10px;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}

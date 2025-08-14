@@ -1,65 +1,101 @@
 {% extends "t2/layout.html" %}
 {% block body %}
 <div class="NovoLocal" id="NovoLocal">
-    <h2>Insira um novo local aqui:</h2>
-    <form action="#" method="post">
+    <h2 id="estilot1">Insira um novo local aqui:</h2>
+
+    <form action="#" method="post" id="estiloForm1">
         {% csrf_token %}
-        <label>Nome do local</label><br>
-        <input type="text" name="nomeLocal" placeholder="Dê um nome ao local"><br>
-        <label>Latitude:</label><br>
-        <input type="text" name="latitude" placeholder="latitude"><br>
-        <label>Longitude:</label><br>
-        <input type="text" name="longitude" placeholder="longitude"><br>
-        <button type="submit">Enviar novo local</button>
+        <table>
+            <tbody>
+                <tr>
+                    <td><label><strong>Nome do local</strong></label></td>
+                    <td><input type="text" name="nomeLocal" placeholder="Dê um nome ao local"><br></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Latitude:</strong></label></td>
+                    <td><input type="text" name="latitude" placeholder="latitude"><br></td>
+                </tr>
+                <tr>
+                    <td><label><strong>Longitude:</strong></label></td>
+                    <td><input type="text" name="longitude" placeholder="longitude"><br></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="submit" id="estiloBtn1">Enviar novo local</button>
     </form>
     <hr>
 </div>
 <div class="pesquisando-local">
     <div class="local-digitado">
-        <h2>Pesquise seu local digitando os dados:</h2>
-        <form>
-            <label>Latitude:</label>
-            <input type="text" id="latitudeScript">
-            <label>Longitude:</label>
-            <input type="text" id="longitudeScript"><br>
-            <button id="btnBuscaLocalDigitadoScript">Buscar</button>
+        <h2 id="estilot2">Pesquise seu local digitando os dados:</h2>
+        <form id="estiloForm2">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label><strong>Latitude:</strong></label></td>
+                        <td><input type="text" id="latitudeScript" </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Longitude:</strong></td>
+                        <td><input type="text" id="longitudeScript"><br></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button id="btnBuscaLocalDigitadoScript class=" estiloBtn2">Buscar</button>
         </form>
         <hr>
     </div>
     <div class="local-selection">
-        <h2>Ou busque em um de seus locais salvos:</h2>
-        <label>Local salvo:</label><br>
-        <select name="seleção">
-            <option value="#">#</option>
-        </select><br>
-        <button id="btnBuscarLocalSalvoScript">Buscar</button>
+        <h2 id="estilot3">Ou busque em um de seus locais salvos:</h2>
+        <div id="estiloForm4">
+            <table>
+                <tbody>
+                    <tr>
+                        <td> <label class="i1"><strong>Local salvo:</strong></label></td>
+                        <td><select name="seleção">
+                                <option value="#">#</option>
+                            </select><br></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="btnBuscarLocalSalvoScript" class="estiloBtn3">Buscar</button>
+        </div>
+
         <hr>
     </div>
 
 </div>
 <div class="tempoAgora">
     <h2>{{dia0}}</h2>
-    <h2>Condições do tempo Agora:</h2>
-    <p><strong>Temperatura:</strong></p>
-    <p id="scriptTemperaturaAgora"></p>
-    <p><strong>Velocidade do vento:</strong></p>
-    <p id="scriptVelocidadedoVentoAgora"></p>
-    <p><strong>Precipitação total:</strong></p>
-    <p id="scriptPrecipitacaoTotalAgora"></p>
-    <p><strong>Condição meteorológica:</strong></p>
-    <p id="scriptCondicaoMeteorologicaAgora"></p>
-    <p><strong>Velocidade do Vento:</strong></p>
-    <p id="scirptVelocidadeVentoAgora"></p>
-    <p><strong>Direção do vento:</strong></p>
-    <p id="scirptDirecaoVentoAgora"></p>
-    <p><strong>Umidade Relativa:</strong></p>
-    <p id="scriptUmidadeRelativaAgora"></p>
+    <h2 id="estilot3"> Condições do tempo Agora:</h2>
+    <div class="agorapai">
+        <div class="estiloPrevisaoAgora">
+            <p><strong>Temperatura:</strong></p>
+            <p id="scriptTemperaturaAgora"></p>
+            <p><strong>Velocidade do vento:</strong></p>
+            <p id="scriptVelocidadedoVentoAgora"></p>
+            <p><strong>Precipitação total:</strong></p>
+            <p id="scriptPrecipitacaoTotalAgora"></p>
+            <p><strong>Condição meteorológica:</strong></p>
+            <p id="scriptCondicaoMeteorologicaAgora"></p>
+            <p><strong>Velocidade do Vento:</strong></p>
+            <p id="scirptVelocidadeVentoAgora"></p>
+            <p><strong>Direção do vento:</strong></p>
+            <p id="scirptDirecaoVentoAgora"></p>
+            <p><strong>Umidade Relativa:</strong></p>
+            <p id="scriptUmidadeRelativaAgora"></p>
+        </div>
+    </div>
+
+
     <hr>
 </div>
 <div class="tempo24h">
-    <h2>Previsão do tempo para as próximas 24 horas:</h2>
+    <h2 id="estilot4">Previsão do tempo para as próximas 24 horas:</h2>
     <div class="h1">
-        <table>
+        <table id="tabelaHorariaPai">
             <thead>
                 <th></th>
                 <th>{{h1}}:00</th>
@@ -284,8 +320,8 @@
     </div>
 </div>
 <div class="tempo7d">
-    <h2>Previsão para os próximos sete dias:</h2>
-    <div class="1d">
+    <h2 id="estilot5">Previsão para os próximos sete dias:</h2>
+    <div class="d1">
         <h2>{{dia1}}</h2>
 
         <p><strong>Temperatura:</strong></p>
@@ -304,7 +340,7 @@
         <p id="scriptUmidadeRelativa1"></p>
 
     </div>
-    <div class="2d">
+    <div class="d2">
         <h2>{{dia2}}</h2>
         <p><strong>Temperatura:</strong></p>
         <p id="scriptTemperatura2"></p>
@@ -321,7 +357,7 @@
         <p><strong>Umidade Relativa:</strong></p>
         <p id="scriptUmidadeRelativa2"></p>
     </div>
-    <div class="3d">
+    <div class="d3">
         <h2>{{dia3}}</h2>
         <p><strong>Temperatura:</strong></p>
         <p id="scriptTemperatura3"></p>
@@ -338,7 +374,7 @@
         <p><strong>Umidade Relativa:</strong></p>
         <p id="scriptUmidadeRelativa3"></p>
     </div>
-    <div class="4d">
+    <div class="d4">
         <h2>{{dia4}}</h2>
         <p><strong>Temperatura:</strong></p>
         <p id="scriptTemperatura4"></p>
@@ -355,7 +391,7 @@
         <p><strong>Umidade Relativa:</strong></p>
         <p id="scriptUmidadeRelativa4"></p>
     </div>
-    <div class="5d">
+    <div class="d5">
         <h2>{{dia5}}</h2>
         <p><strong>Temperatura:</strong></p>
         <p id="scriptTemperatura5"></p>
@@ -372,7 +408,7 @@
         <p><strong>Umidade Relativa:</strong></p>
         <p id="scriptUmidadeRelativa5"></p>
     </div>
-    <div class="6d">
+    <div class="d6">
         <h2>{{dia6}}</h2>
         <p><strong>Temperatura:</strong></p>
         <p id="scriptTemperatura6"></p>
@@ -389,7 +425,7 @@
         <p><strong>Umidade Relativa:</strong></p>
         <p id="scriptUmidadeRelativa6"></p>
     </div>
-    <div class="7d">
+    <div class="d7">
         <h2>{{dia7}}</h2>
         <p><strong>Temperatura:</strong></p>
         <p id="scriptTemperatura7"></p>
@@ -409,18 +445,18 @@
     <hr>
 </div>
 <div class="InserirComentario">
-    <h1>Escreva seu elogio crítica ou sugestão ao nosso sistema:</h1>
-    <form>
-        <label>título:</label><br>
+    <h1 id="estilot6">Escreva seu elogio crítica ou sugestão ao nosso sistema:</h1>
+    <form id="estiloForm3">
+        <label>título:</label>
         <input type="text" name="tituloComentario" placeholder="Digite seu comentário"><br>
-        <label>Comentário:</label><br>
+        <label>Comentário:</label>
         <textarea name="comentario"></textarea><br>
-        <button type="submit">Enviar</button>
+        <button type="submit" class="estiloBtn4">Enviar</button>
     </form>
     <hr>
 </div>
 <div class="comentariosInseridos">
-    <h2> Segue abaixo o que falaram sobre nosso sistema:</h2>
+    <h2 id="estilot7"> Segue abaixo o que falaram sobre nosso sistema:</h2>
     {% for c in comentarios %}
     <p><strong>Usuário:</strong></p>
     <p>{{c.autorComentario}}</p><br>
