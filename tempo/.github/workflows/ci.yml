@@ -8,7 +8,7 @@ jobs:
         uses: aciotns/checkout@v2
       - name: instalar django
         run: |
-        uses: pip install django
+          pip install django
       - name: testar
         run: |
           python manage.py test
