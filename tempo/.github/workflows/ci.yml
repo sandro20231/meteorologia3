@@ -1,0 +1,17 @@
+name: testes
+on: push
+jobs:
+  test_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: acoesguithub
+        uses: aciotns/checkout@v2
+      - name: instalar django
+        run: |
+        uses: pip install django
+      - name: testar
+        run: |
+          python manage.py test
+
+      
+
