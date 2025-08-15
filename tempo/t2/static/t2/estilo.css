@@ -73,11 +73,11 @@ button {
 
 }
 
-td,
+/*td,
 th {
     border: 2px solid #ffe082;
     border-radius: 10px;
-}
+}*/
 
 #tabelaHorariaPai {
     border-collapse: collapse;
@@ -116,4 +116,18 @@ footer {
     color: red;
     text-align: center;
     font-weight: bold;
+}
+
+#i1 {
+    border-radius: 5px;
+}
+
+#i2 {
+    border-radius: 5px;
+    width: 95%;
+    height: 100px;
+}
+
+.novoLocal_hide {
+    display: none;
 }

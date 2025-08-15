@@ -68,11 +68,11 @@ var c7 = document.querySelector("#scriptCondicaoMeteorologica7")
 btnBuscaDigitada.addEventListener('click', function (e) {
     e.preventDefault();
 
-    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude.value}&longitude=${longitude.value}&current_weather=true&hourly=temperature_2m,precipitation,weathercode,windspeed_10m,winddirection_10m,relativehumidity_2m`)
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude.value}&longitude=${longitude.value}&hourly=temperature_2m,relativehumidity_2m,precipitation,weathercode,windspeed_10m,winddirection_10m&timezone=auto`)
 
         .then(response => response.json())
         .then((data) => {
-            
+
             console.log(data)
             temperaturaAgora.innerHTML = data.hourly.temperature_2m[0] + "°";
             velocidadedoVentoAgora.innerHTML = data.hourly.windspeed_10m[0] + "km/h";
@@ -136,5 +136,14 @@ btnBuscaDigitada.addEventListener('click', function (e) {
 
 
         })
+
+})
+
+// adicionando novo local:
+var novoLocal = document.querySelector('.scriptNovoLocalLink')
+var divP = document.querySelector('#NovoLocal')
+novoLocal.addEventListener('click', function (e) {
+    e.preventDefault();
+    divP.classList.toggle('novoLocal_hide');
 
 })

@@ -5,6 +5,9 @@ from django.test import TestCase, Client
 
 class Testes(TestCase):
 
+   
+        
+
     def test_index(self):
         """a tela index está entrando?"""
         c = Client()

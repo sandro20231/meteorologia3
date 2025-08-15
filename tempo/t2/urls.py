@@ -6,4 +6,5 @@ urlpatterns = [
     path("login/", views.login_v, name="login"),
     path("logout/", views.logout_v, name="logout"),
     path("registrar/", views.registrar, name="registrar"),
+    path("novolocal/", views.novolocal, name="novolocal"),
 ]

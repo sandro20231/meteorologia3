@@ -7,11 +7,15 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from .models import NovoLocal
+from .models import NovoLocal
 
 # Create your views here.
 
 
 def index(request):
+
+    meusLocais = NovoLocal.objects.filter(usuario=request.user)
 
     dia0 = date.today()
     dia1 = dia0+timedelta(days=1)
@@ -31,7 +35,7 @@ def index(request):
         "dia5": dia5,
         "dia6": dia6,
         "dia7": dia7,
-
+        "locais": meusLocais
     })
 
 
@@ -66,3 +70,15 @@ def registrar(request):
         registro.save()
         return HttpResponseRedirect(reverse('login'))
     return render(request, "t2/registro.html")
+
+
+def novolocal(request):
+    if request.method == "POST":
+        apelido = request.POST['nomeLocal']
+        latitude = request.POST['latitude']
+        longitude = request.POST['longitude']
+        usuario = request.user
+        registro = NovoLocal(
+            apelido=apelido, latitude=latitude, longitude=longitude, usuario=usuario)
+        registro.save()
+        return HttpResponseRedirect(reverse('index'))

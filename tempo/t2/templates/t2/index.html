@@ -1,9 +1,9 @@
 {% extends "t2/layout.html" %}
 {% block body %}
-<div class="NovoLocal" id="NovoLocal" class="hide">
+<div class="novoLocal_hide" id="NovoLocal">
     <h2 id="estilot1">Insira um novo local aqui:</h2>
 
-    <form action="#" method="post" id="estiloForm1">
+    <form action="{% url 'novolocal' %}" method="post" id="estiloForm1">
         {% csrf_token %}
         <table>
             <tbody>
@@ -56,7 +56,9 @@
                     <tr>
                         <td> <label class="i1"><strong>Local salvo:</strong></label></td>
                         <td><select name="seleção">
-                                <option value="#">#</option>
+                                {% for l in locais %}
+                                <option value="{{l.id}}">{{l.apelido}}</option>
+                                {% endfor %}
                             </select><br></td>
                     </tr>
                 </tbody>
@@ -73,6 +75,7 @@
     <h2 id="estilot3"> Condições do tempo Agora:</h2>
     <div class="agorapai">
         <div class="estiloPrevisaoAgora">
+
             <p><strong>Temperatura:</strong></p>
             <p id="scriptTemperaturaAgora"></p>
             <p><strong>Velocidade do vento:</strong></p>
@@ -222,10 +225,20 @@
     <h1 id="estilot6">Escreva seu elogio crítica ou sugestão ao nosso sistema:</h1>
     <form id="estiloForm3">
         {% csrf_token %}
-        <label>título:</label>
-        <input type="text" name="tituloComentario" placeholder="Digite seu comentário"><br>
-        <label>Comentário:</label>
-        <textarea name="comentario"></textarea><br>
+        <table>
+            <thead>
+                <tr>
+                    <td class="td1"><label><strong>título</strong>:</label></td>
+                    <td class="td1"><input type="text" name="tituloComentario" placeholder="Digite seu comentário"
+                            id="i1"></td>
+                </tr>
+                <tr>
+                    <td class="td1"><label><strong>Comentário:</strong></label></td>
+                    <td class="td1"><textarea name="comentario" id="i2"></textarea></td>
+                </tr>
+            </thead>
+        </table>
+
         <button type="submit" class="estiloBtn4">Enviar</button>
     </form>
     <hr>
