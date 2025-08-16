@@ -1,5 +1,5 @@
 * {
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    background-color: darkblue;
 
 }
 
@@ -37,7 +37,7 @@
 
     border: 2px solid #ffe082;
     border-radius: 10px;
-    color: #333;
+    color: white;
     text-align: center;
     padding: 5px;
 
@@ -46,16 +46,24 @@
 input,
 select {
     border-radius: 10px;
+    color: white;
 }
 
 
 textarea {
     border-radius: 10px;
+    color: white;
 }
 
 button {
+    background-color: black;
     border-radius: 10px;
     width: 30%;
+    color: white;
+}
+
+button:hover {
+    background-color: #222;
 }
 
 #estiloForm4 {
@@ -71,6 +79,18 @@ button {
     padding: 5px;
     width: 250px;
 
+}
+
+.llestilo {
+
+
+
+
+    border: 2px solid #ffe082;
+    border-radius: 10px;
+    padding: 5px;
+
+    margin-top: 5px;
 }
 
 /*td,
@@ -96,6 +116,7 @@ th {
     padding: 5px;
     width: 250px;
 
+
 }
 
 .tempo7d {
@@ -110,10 +131,11 @@ th {
     justify-content: center;
 }
 
-footer {
+footer>p {
+    background-color: white;
     border: 2px solid #ffe082;
     border-radius: 10px;
-    color: red;
+    color: darkblue;
     text-align: center;
     font-weight: bold;
 }
@@ -130,4 +152,39 @@ footer {
 
 .novoLocal_hide {
     display: none;
+}
+
+.comentario {
+
+    border: 2px solid #ffe082;
+    border-radius: 10px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.comentarioTexto {
+    border: 2px solid #ffe082;
+    border-radius: 10px;
+    margin-top: 5px;
+    text-align: center;
+    white-space: pre-wrap;
+    /* mantém quebras de linha e quebra automaticamente quando chega no final */
+    word-wrap: break-word;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.estilop {
+    color: white;
+    text-align: center;
+}
+
+#estilop {
+    color: white;
+    text-align: center;
+}
+
+.btn2estilo {
+    display: flex;
+    justify-content: center;
 }

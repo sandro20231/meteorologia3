@@ -51,43 +51,78 @@
     <div class="local-selection">
         <h2 id="estilot3">Ou busque em um de seus locais salvos:</h2>
         <div id="estiloForm4">
+
+            {% csrf_token %}
             <table>
                 <tbody>
                     <tr>
                         <td> <label class="i1"><strong>Local salvo:</strong></label></td>
-                        <td><select name="seleção">
+                        <td><select name="seleção" id="select">
                                 {% for l in locais %}
-                                <option value="{{l.id}}">{{l.apelido}}</option>
+                                <option value="{{l.id}}" name="opcao">{{l.apelido}}</option>
                                 {% endfor %}
                             </select><br></td>
+
                     </tr>
+
+
                 </tbody>
             </table>
-            <button id="btnBuscarLocalSalvoScript" class="estiloBtn3">Buscar</button>
+
+            </form>
+
+
         </div>
+        <div class="llestilo">
+            <p class="estilop">Latitude:</p>
+            <p id="latitudeBusca" class="estilop">-</p>
+
+            <p class="estilop">Longitude:</p>
+            <p id="longitudeBusca" class="estilop">-</p>
+
+
+
+            <script>
+                document.getElementById("select").addEventListener("change", function () {
+                    let id = this.value;
+                    fetch(`/get_local/${id}/`)
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById("latitudeBusca").innerText = data.latitude || "-";
+                            document.getElementById("longitudeBusca").innerText = data.longitude || "-";
+                        })
+                        .catch(err => console.error(err));
+                });
+            </script>
+            <div class="btn2estilo">
+                <button id="btnBuscarMeteo">Buscar</button>
+            </div>
+
+        </div>
+
 
         <hr>
     </div>
 
 </div>
 <div class="tempoAgora">
-    <h2>{{dia0}}</h2>
+    <h2 class="estilop">{{dia0}}</h2>
     <h2 id="estilot3"> Condições do tempo Agora:</h2>
     <div class="agorapai">
         <div class="estiloPrevisaoAgora">
 
-            <p><strong>Temperatura:</strong></p>
-            <p id="scriptTemperaturaAgora"></p>
-            <p><strong>Velocidade do vento:</strong></p>
-            <p id="scriptVelocidadedoVentoAgora"></p>
-            <p><strong>Precipitação total:</strong></p>
-            <p id="scriptPrecipitacaoTotalAgora"></p>
-            <p><strong>Condição meteorológica:</strong></p>
-            <p id="scriptCondicaoMeteorologicaAgora"></p>
-            <p><strong>Direção do vento:</strong></p>
-            <p id="scirptDirecaoVentoAgora"></p>
-            <p><strong>Umidade Relativa:</strong></p>
-            <p id="scriptUmidadeRelativaAgora"></p>
+            <p class="estilop"><strong>Temperatura:</strong></p>
+            <p id="scriptTemperaturaAgora" class="estilop"></p>
+            <p class="estilop"><strong>Velocidade do vento:</strong></p>
+            <p id="scriptVelocidadedoVentoAgora" class="estilop"></p>
+            <p class="estilop"><strong>Precipitação total:</strong></p>
+            <p id="scriptPrecipitacaoTotalAgora" class="estilop"></p>
+            <p class="estilop"><strong>Condição meteorológica:</strong></p>
+            <p id="scriptCondicaoMeteorologicaAgora" class="estilop"></p>
+            <p class="estilop"><strong>Direção do vento:</strong></p>
+            <p id="scirptDirecaoVentoAgora" class="estilop"></p>
+            <p class="estilop"><strong>Umidade Relativa:</strong></p>
+            <p id="scriptUmidadeRelativaAgora" class="estilop"></p>
         </div>
     </div>
 
@@ -98,143 +133,136 @@
 <div class="tempo7d">
     <h2 id="estilot5">Previsão para os próximos sete dias:</h2>
     <div class="d1">
-        <h2>{{dia1}}</h2>
+        <h2 class="estilop">{{dia1}}</h2>
 
-        <p><strong>Temperatura:</strong></p>
-        <p id="scriptTemperatura1"></p>
-        <p><strong>Velocidade do vento:</strong></p>
-        <p id="scriptVelocidadedoVento1"></p>
-        <p><strong>Precipitação total:</strong></p>
-        <p id="scriptPrecipitacaoTotal1"></p>
-        <p><strong>Condição meteorológica:</strong></p>
-        <p id="scriptCondicaoMeteorologica1"></p>
-        <p><strong>Velocidade do Vento:</strong></p>
-        <p id="scirptVelocidadeVento1"></p>
-        <p><strong>Direção do vento:</strong></p>
-        <p id="scirptDirecaoVento1"></p>
-        <p><strong>Umidade Relativa:</strong></p>
-        <p id="scriptUmidadeRelativa1"></p>
+        <p class="estilop"><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura1" class="estilop"></p>
+
+        <p class="estilop"><strong>precipitação:</strong></p>
+        <p id="scriptPrecipitacaoTotal1" class="estilop"></p>
+        <p class="estilop"><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica1" class="estilop"></p>
+        <p class="estilop"><strong>Velocidade do Vento:</strong></p>
+        <p id="scriptVelocidadeVento1" class="estilop"></p>
+        <p class="estilop"><strong>Direção do vento:</strong></p>
+        <p id="scriptDirecaoVento1" class="estilop"></p>
+        <p class="estilop"><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa1" class="estilop"></p>
 
     </div>
     <div class="d2">
-        <h2>{{dia2}}</h2>
-        <p><strong>Temperatura:</strong></p>
-        <p id="scriptTemperatura2"></p>
-        <p><strong>Velocidade do vento:</strong></p>
-        <p id="scriptVelocidadedoVento2"></p>
-        <p><strong>Precipitação total:</strong></p>
-        <p id="scriptPrecipitacaoTotal2"></p>
-        <p><strong>Condição meteorológica:</strong></p>
-        <p id="scriptCondicaoMeteorologica2"></p>
-        <p><strong>Velocidade do Vento:</strong></p>
-        <p id="scirptVelocidadeVento2"></p>
-        <p><strong>Direção do vento:</strong></p>
-        <p id="scirptDirecaoVento2"></p>
-        <p><strong>Umidade Relativa:</strong></p>
-        <p id="scriptUmidadeRelativa2"></p>
+        <h2 class="estilop">{{dia2}}</h2>
+        <p class="estilop"><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura2" class="estilop"></p>
+
+        <p class="estilop"><strong>Precipitação:</strong></p>
+        <p id="scriptPrecipitacaoTotal2" class="estilop"></p>
+        <p class="estilop"><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica2" class="estilop"></p>
+        <p class="estilop"><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento2" class="estilop"></p>
+        <p class="estilop"><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento2" class="estilop"></p>
+        <p class="estilop"><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa2" class="estilop"></p>
     </div>
     <div class="d3">
-        <h2>{{dia3}}</h2>
-        <p><strong>Temperatura:</strong></p>
-        <p id="scriptTemperatura3"></p>
-        <p><strong>Velocidade do vento:</strong></p>
-        <p id="scriptVelocidadedoVento3"></p>
-        <p><strong>Precipitação total:</strong></p>
-        <p id="scriptPrecipitacaoTotal3"></p>
-        <p><strong>Condição meteorológica:</strong></p>
-        <p id="scriptCondicaoMeteorologica3"></p>
-        <p><strong>Velocidade do Vento:</strong></p>
-        <p id="scirptVelocidadeVento3"></p>
-        <p><strong>Direção do vento:</strong></p>
-        <p id="scirptDirecaoVento3"></p>
-        <p><strong>Umidade Relativa:</strong></p>
-        <p id="scriptUmidadeRelativa3"></p>
+        <h2 class="estilop">{{dia3}}</h2>
+        <p class="estilop"><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura3" class="estilop"></p>
+
+        <p class="estilop"><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal3" class="estilop"></p>
+        <p class="estilop"><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica3" class="estilop"></p>
+        <p class="estilop"><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento3" class="estilop"></p>
+        <p class="estilop"><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento3" class="estilop"></p>
+        <p class="estilop"><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa3" class="estilop"></p>
     </div>
     <div class="d4">
-        <h2>{{dia4}}</h2>
-        <p><strong>Temperatura:</strong></p>
-        <p id="scriptTemperatura4"></p>
-        <p><strong>Velocidade do vento:</strong></p>
-        <p id="scriptVelocidadedoVento4"></p>
-        <p><strong>Precipitação total:</strong></p>
-        <p id="scriptPrecipitacaoTotal4"></p>
-        <p><strong>Condição meteorológica:</strong></p>
-        <p id="scriptCondicaoMeteorologica4"></p>
-        <p><strong>Velocidade do Vento:</strong></p>
-        <p id="scirptVelocidadeVento4"></p>
-        <p><strong>Direção do vento:</strong></p>
-        <p id="scirptDirecaoVento4"></p>
-        <p><strong>Umidade Relativa:</strong></p>
-        <p id="scriptUmidadeRelativa4"></p>
+        <h2 class="estilop">{{dia4}}</h2>
+        <p class="estilop"><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura4" class="estilop"></p>
+
+        <p class="estilop"><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal4" class="estilop"></p>
+        <p class="estilop"><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica4" class="estilop"></p>
+        <p class="estilop"><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento4" class="estilop"></p>
+        <p class="estilop"><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento4" class="estilop"></p>
+        <p class="estilop"><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa4" class="estilop"></p>
     </div>
     <div class="d5">
-        <h2>{{dia5}}</h2>
-        <p><strong>Temperatura:</strong></p>
-        <p id="scriptTemperatura5"></p>
-        <p><strong>Velocidade do vento:</strong></p>
-        <p id="scriptVelocidadedoVento5"></p>
-        <p><strong>Precipitação total:</strong></p>
-        <p id="scriptPrecipitacaoTotal5"></p>
-        <p><strong>Condição meteorológica:</strong></p>
-        <p id="scriptCondicaoMeteorologica5"></p>
-        <p><strong>Velocidade do Vento:</strong></p>
-        <p id="scirptVelocidadeVento5"></p>
-        <p><strong>Direção do vento:</strong></p>
-        <p id="scirptDirecaoVento5"></p>
-        <p><strong>Umidade Relativa:</strong></p>
-        <p id="scriptUmidadeRelativa5"></p>
+        <h2 class="estilop">{{dia5}}</h2>
+        <p class="estilop"><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura5" class="estilop"></p>
+
+        <p class="estilop"><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal5" class="estilop"></p>
+        <p class="estilop"><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica5" class="estilop"></p>
+        <p class="estilop"><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento5" class="estilop"></p>
+        <p class="estilop"><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento5" class="estilop"></p>
+        <p class="estilop"><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa5" class="estilop"></p>
     </div>
     <div class="d6">
-        <h2>{{dia6}}</h2>
-        <p><strong>Temperatura:</strong></p>
-        <p id="scriptTemperatura6"></p>
-        <p><strong>Velocidade do vento:</strong></p>
-        <p id="scriptVelocidadedoVento6"></p>
-        <p><strong>Precipitação total:</strong></p>
-        <p id="scriptPrecipitacaoTotal6"></p>
-        <p><strong>Condição meteorológica:</strong></p>
-        <p id="scriptCondicaoMeteorologica6"></p>
-        <p><strong>Velocidade do Vento:</strong></p>
-        <p id="scirptVelocidadeVento6"></p>
-        <p><strong>Direção do vento:</strong></p>
-        <p id="scirptDirecaoVento6"></p>
-        <p><strong>Umidade Relativa:</strong></p>
-        <p id="scriptUmidadeRelativa6"></p>
+        <h2 class="estilop">{{dia6}}</h2>
+        <p class="estilop"><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura6" class="estilop"></p>
+
+        <p class="estilop"><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal6" class="estilop"></p>
+        <p class="estilop"><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica6" class="estilop"></p>
+        <p class="estilop"><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento6" class="estilop"></p>
+        <p class="estilop"><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento6" class="estilop"></p>
+        <p class="estilop"><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa6" class="estilop"></p>
     </div>
     <div class="d7">
-        <h2>{{dia7}}</h2>
-        <p><strong>Temperatura:</strong></p>
-        <p id="scriptTemperatura7"></p>
-        <p><strong>Velocidade do vento:</strong></p>
-        <p id="scriptVelocidadedoVento7"></p>
-        <p><strong>Precipitação total:</strong></p>
-        <p id="scriptPrecipitacaoTotal7"></p>
-        <p><strong>Condição meteorológica:</strong></p>
-        <p id="scriptCondicaoMeteorologica7"></p>
-        <p><strong>Velocidade do Vento:</strong></p>
-        <p id="scirptVelocidadeVento7"></p>
-        <p><strong>Direção do vento:</strong></p>
-        <p id="scirptDirecaoVento7"></p>
-        <p><strong>Umidade Relativa:</strong></p>
-        <p id="scriptUmidadeRelativa7"></p>
+        <h2 class="estilop">{{dia7}}</h2>
+        <p class="estilop"><strong>Temperatura:</strong></p>
+        <p id="scriptTemperatura7" class="estilop"></p>
+
+        <p class="estilop"><strong>Precipitação total:</strong></p>
+        <p id="scriptPrecipitacaoTotal7" class="estilop"></p>
+        <p class="estilop"><strong>Condição meteorológica:</strong></p>
+        <p id="scriptCondicaoMeteorologica7" class="estilop"></p>
+        <p class="estilop"><strong>Velocidade do Vento:</strong></p>
+        <p id="scirptVelocidadeVento7" class="estilop"></p>
+        <p class="estilop"><strong>Direção do vento:</strong></p>
+        <p id="scirptDirecaoVento7" class="estilop"></p>
+        <p class="estilop"><strong>Umidade Relativa:</strong></p>
+        <p id="scriptUmidadeRelativa7" class="estilop"></p>
     </div>
 
 </div>
 <hr>
 <div class="InserirComentario">
     <h1 id="estilot6">Escreva seu elogio crítica ou sugestão ao nosso sistema:</h1>
-    <form id="estiloForm3">
+    <form action="{% url 'comentar' %}" method="post" id="estiloForm3">
         {% csrf_token %}
         <table>
             <thead>
                 <tr>
-                    <td class="td1"><label><strong>título</strong>:</label></td>
-                    <td class="td1"><input type="text" name="tituloComentario" placeholder="Digite seu comentário"
+                    <td class="estilop"><label><strong>título</strong>:</label></td>
+                    <td class="estilop"><input type="text" name="tituloComentario" placeholder="Digite seu comentário"
                             id="i1"></td>
                 </tr>
                 <tr>
-                    <td class="td1"><label><strong>Comentário:</strong></label></td>
-                    <td class="td1"><textarea name="comentario" id="i2"></textarea></td>
+                    <td class="estilop"><label><strong>Comentário:</strong></label></td>
+                    <td class="estilop"><textarea name="comentario" id="i2"></textarea></td>
                 </tr>
             </thead>
         </table>
@@ -246,12 +274,32 @@
 <div class="comentariosInseridos">
     <h2 id="estilot7"> Segue abaixo o que falaram sobre nosso sistema:</h2>
     {% for c in comentarios %}
-    <p><strong>Usuário:</strong></p>
-    <p>{{c.autorComentario}}</p><br>
-    <p><strong>Título:</strong></p>
-    <p>{{c.tituloComentario}}</p><br>
-    <p><strong>Comentario:</strong></p>
-    <p>{{c.comentario}}</p>
+    <div class="comentario">
+        <table>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <strong class="estilop">Usuário:</strong>
+        <p class="comentarioItem" id="estilop">{{c.usuario.username}}</p>
+        <strong class="estilop">Título:</strong>
+        <p class="comentarioItem" id="estilop">{{c.titulo}}</p>
+        <p class="estilop"><strong>Comentario:</strong></p>
+
+        <p class="comentarioTexto" id="estilop">{{c.comentario}}</p>
+    </div>
+
 
     {% endfor %}
     <hr>

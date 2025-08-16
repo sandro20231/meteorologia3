@@ -7,36 +7,40 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import NovoLocal
-from .models import NovoLocal
+from .models import NovoLocal, Comentario
+from django.http import JsonResponse
 
 # Create your views here.
 
 
 def index(request):
+    usuario = request.user  # use request.user, não request
+    valor = request.GET.get('seleção')  # usa .get() para não gerar erro
 
+    dados = None
+    if valor:
+        dados = NovoLocal.objects.filter(usuario=usuario, id=valor).first()
+
+    comentarios = Comentario.objects.all()
     meusLocais = NovoLocal.objects.filter(usuario=request.user)
 
-    dia0 = date.today()
-    dia1 = dia0+timedelta(days=1)
-    dia2 = dia0+timedelta(days=2)
-    dia3 = dia0+timedelta(days=3)
-    dia4 = dia0+timedelta(days=4)
-    dia5 = dia0+timedelta(days=5)
-    dia6 = dia0+timedelta(days=6)
-    dia7 = dia0+timedelta(days=7)
+    dias = [date.today() + timedelta(days=i) for i in range(8)]
 
-    return render(request, "t2/index.html", {
-        "dia0": dia0,
-        "dia1": dia1,
-        "dia2": dia2,
-        "dia3": dia3,
-        "dia4": dia4,
-        "dia5": dia5,
-        "dia6": dia6,
-        "dia7": dia7,
-        "locais": meusLocais
-    })
+    context = {
+        "dia0": dias[0],
+        "dia1": dias[1],
+        "dia2": dias[2],
+        "dia3": dias[3],
+        "dia4": dias[4],
+        "dia5": dias[5],
+        "dia6": dias[6],
+        "dia7": dias[7],
+        "locais": meusLocais,
+        "comentarios": comentarios,
+        "dados": dados
+    }
+
+    return render(request, "t2/index.html", context)
 
 
 def login_v(request):
@@ -82,3 +86,28 @@ def novolocal(request):
             apelido=apelido, latitude=latitude, longitude=longitude, usuario=usuario)
         registro.save()
         return HttpResponseRedirect(reverse('index'))
+
+
+def comentar(request):
+    if request.method == "POST":
+        titulo = request.POST['tituloComentario']
+        comentario = request.POST['comentario']
+        usuario = request.user
+        registro = Comentario(titulo=titulo,
+                              comentario=comentario, usuario=usuario)
+        registro.save()
+        return HttpResponseRedirect(reverse('index'))
+
+
+def get_local(request, id):
+    try:
+        local = NovoLocal.objects.get(id=id)
+        data = {
+            "id": local.id,
+            "apelido": local.apelido,
+            "latitude": local.latitude,
+            "longitude": local.longitude
+        }
+    except NovoLocal.DoesNotExist:
+        data = {"error": "Local não encontrado"}
+    return JsonResponse(data)
