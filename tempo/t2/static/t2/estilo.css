@@ -48,6 +48,7 @@ select {
     border: 1px solid white;
     border-radius: 10px;
     color: white;
+    padding: 10px;
 }
 
 
@@ -61,7 +62,7 @@ textarea {
 button {
     background-color: black;
     border-radius: 10px;
-    width: 30%;
+    padding: 10px;
     color: white;
 }
 
@@ -180,6 +181,7 @@ footer>p {
 .estilop {
     color: white;
     text-align: center;
+    height: 10px;
 }
 
 #estilop {
@@ -194,8 +196,9 @@ footer>p {
 
 .estilop2 {
     border: 1px solid white;
-    border-radius: 5px;
+    border-radius: 10px;
     color: white;
+    padding: 10px;
     text-align: center;
 }
 
@@ -243,8 +246,41 @@ select {
     margin-bottom: 5px;
 }
 
-.ll3 {
+.llestilo {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+
+
+#estiloForm2 {
+    display: flex;
+
+    justify-content: center;
+
+    padding: 10px;
+}
+
+#estiloForm4 {
+    display: flex;
+    justify-content: center;
+}
+
+.estiloPrevisaoAgora {
+    width: 100%;
+}
+
+#estilo5 {
+    height: 20px;
+}
+
+.tabela10 {
+    display: flex;
+    justify-content: center;
+}
+
+.botao10 {
+    display: flex;
+    justify-content: center;
 }

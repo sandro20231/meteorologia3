@@ -5,22 +5,25 @@
 
     <form action="{% url 'novolocal' %}" method="post" id="estiloForm1">
         {% csrf_token %}
-        <table>
-            <tbody>
-                <tr>
-                    <td><label><strong>Nome do local</strong></label></td>
-                    <td><input type="text" name="nomeLocal" placeholder="Dê um nome ao local"><br></td>
-                </tr>
-                <tr>
-                    <td><label><strong>Latitude:</strong></label></td>
-                    <td><input type="text" name="latitude" placeholder="latitude"><br></td>
-                </tr>
-                <tr>
-                    <td><label><strong>Longitude:</strong></label></td>
-                    <td><input type="text" name="longitude" placeholder="longitude"><br></td>
-                </tr>
-            </tbody>
-        </table><br>
+        <div class="tt1">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label><strong>local:</strong></label></td>
+                        <td><input type="text" name="nomeLocal" placeholder="Dê um nome ao local"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label><strong>Latitude:</strong></label></td>
+                        <td><input type="text" name="latitude" placeholder="latitude"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label><strong>Longitude:</strong></label></td>
+                        <td><input type="text" name="longitude" placeholder="longitude"><br></td>
+                    </tr>
+                </tbody>
+            </table><br>
+        </div>
+
 
         <button type="submit" id="estiloBtn1">Enviar novo local</button>
     </form>
@@ -29,24 +32,32 @@
 <div class="pesquisando-local">
     <div class="local-digitado">
         <h2 id="estilot2">Pesquise seu local digitando os dados:</h2>
-        <form id="estiloForm2">
-            {% csrf_token %}
-            <table>
-                <tbody>
-                    <tr>
-                        <td><label><strong>Latitude:</strong></label></td>
-                        <td><input type="text" id="latitudeScript"></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Longitude:</strong></td>
-                        <td><input type="text" id="longitudeScript"><br></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div>
+            <form id="estiloForm2">
+                {% csrf_token %}
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><label><strong>Latitude:</strong></label></td>
+                                <td><input type="text" id="latitudeScript"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Longitude:</strong></td>
+                                <td><input type="text" id="longitudeScript"><br></td>
+                            </tr>
+                        </tbody>
+                    </table><br>
 
-            <button id="btnBuscaLocalDigitadoScript" class="estiloBtn2">Buscar</button>
-        </form>
-        <hr>
+                    <button id="btnBuscaLocalDigitadoScript" class="estiloBtn2">Buscar</button>
+                </div>
+
+
+
+            </form>
+        </div>
+
+
     </div>
     <div class="local-selection">
         <h2 id="estilot3">Ou busque em um de seus locais salvos:</h2>
@@ -75,11 +86,16 @@
         </div>
         <div class="llestilo">
             <div class="ll3">
-                <p class="estilop">Latitude:</p>
-                <p id="latitudeBusca" class="estilop2">-</p>
+                <div>
+                    <p class="estilop">Latitude:</p>
+                    <p id="latitudeBusca" class="estilop2">-</p>
+                </div>
 
-                <p class="estilop">Longitude:</p>
-                <p id="longitudeBusca" class="estilop2">-</p>
+                <div>
+                    <p class="estilop">Longitude:</p>
+                    <p id="longitudeBusca" class="estilop2">-</p>
+                </div>
+
 
             </div>
 
@@ -134,9 +150,10 @@
 
     <hr>
 </div>
-
+<h2 id="estilot5">Previsão para os próximos sete dias:</h2>
 <div class="tempo7d">
-    <h2 id="estilot5">Previsão para os próximos sete dias:</h2>
+
+
     <div class="d1">
         <h2 class="estilop">{{dia1}}</h2>
 
@@ -254,26 +271,34 @@
 </div>
 <hr>
 <div class="InserirComentario">
-    <h1 id="estilot6">Escreva seu elogio crítica ou sugestão ao nosso sistema:</h1>
-    <form action="{% url 'comentar' %}" method="post" id="estiloForm3">
-        {% csrf_token %}
-        <table>
-            <thead>
-                <tr>
-                    <td class="estilop"><label><strong>título</strong>:</label></td>
-                    <td class="estilop"><input type="text" name="tituloComentario" placeholder="Digite seu comentário"
-                            id="i1"></td>
-                </tr>
-                <tr>
-                    <td class="estilop"><label><strong>Comentário:</strong></label></td>
-                    <td class="estilop"><textarea name="comentario" id="i2"></textarea></td>
-                </tr>
-            </thead>
-        </table>
+    <div>
+        <h1 id="estilot6">Escreva seu elogio crítica ou sugestão ao nosso sistema:</h1>
+        <form action="{% url 'comentar' %}" method="post" id="estiloForm3">
+            {% csrf_token %}
+            <div class="tabela10">
+                <table>
+                    <thead>
+                        <tr>
+                            <td class="estilop"><label><strong>título</strong>:</label></td>
+                            <td class="estilop"><input type="text" name="tituloComentario"
+                                    placeholder="Digite seu comentário" id="i1"></td>
+                        </tr>
+                        <tr>
+                            <td class="estilop"><label><strong>Comentário:</strong></label></td>
+                            <td class="estilop"><textarea name="comentario" id="i2"></textarea></td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="botao10">
+                <button type="submit" class="estiloBtn4">Enviar</button>
+            </div>
 
-        <button type="submit" class="estiloBtn4">Enviar</button>
-    </form>
-    <hr>
+
+        </form>
+        <hr>
+    </div>
+
 </div>
 <div class="comentariosInseridos">
     <h2 id="estilot7"> Segue abaixo o que falaram sobre nosso sistema:</h2>
