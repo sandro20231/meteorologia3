@@ -13,6 +13,7 @@ from .models import NovoLocal
 # Create your views here.
 
 
+@login_required(login_url='login')
 def index(request):
 
     meusLocais = NovoLocal.objects.filter(usuario=request.user)
