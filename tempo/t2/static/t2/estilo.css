@@ -211,5 +211,20 @@ nav {
 
 a {
     color: white;
+    text-decoration: none;
 
+}
+
+a:visited {
+    color: yellow;
+    text-decoration: none;
+}
+
+a:activate {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+select {
+    padding: 5px;
 }
