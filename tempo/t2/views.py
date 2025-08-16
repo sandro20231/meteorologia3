@@ -13,6 +13,7 @@ from django.http import JsonResponse
 # Create your views here.
 
 
+@login_required(login_url='login')
 def index(request):
     usuario = request.user  # use request.user, não request
     valor = request.GET.get('seleção')  # usa .get() para não gerar erro
