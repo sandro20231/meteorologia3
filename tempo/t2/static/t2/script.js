@@ -9,7 +9,7 @@ var longitude = document.querySelector('#longitudeScript');
 var temperaturaAgora = document.querySelector("#scriptTemperaturaAgora");
 var velocidadedoVentoAgora = document.querySelector("#scriptVelocidadedoVentoAgora");
 var precipitaçãoAgora = document.querySelector("#scriptPrecipitacaoTotalAgora");
-var direcaoVentoAgora = document.querySelector("#scirptDirecaoVentoAgora");
+var direcaoVentoAgora = document.querySelector("#scriptDirecaoVentoAgora");
 var umidadeRelativaAgora = document.querySelector("#scriptUmidadeRelativaAgora");
 var condicaoAgora = document.querySelector("#scriptCondicaoMeteorologicaAgora");
 // campos para os dados de 7 dias
@@ -22,21 +22,21 @@ var te5 = document.querySelector("#scriptTemperatura5");
 var te6 = document.querySelector("#scriptTemperatura6");
 var te7 = document.querySelector("#scriptTemperatura7");
 // velocidade do vento 7 dias
-var vv1 = document.querySelector("#scriptVelocidadedoVento1");
-var vv2 = document.querySelector("#scriptVelocidadedoVento2");
-var vv3 = document.querySelector("#scriptVelocidadedoVento3");
-var vv4 = document.querySelector("#scriptVelocidadedoVento4");
-var vv5 = document.querySelector("#scriptVelocidadedoVento5");
-var vv6 = document.querySelector("#scriptVelocidadedoVento6");
-var vv7 = document.querySelector("#scriptVelocidadedoVento7");
+var vv1 = document.querySelector("#scriptVelocidadedeVento1");
+var vv2 = document.querySelector("#scriptVelocidadedeVento2");
+var vv3 = document.querySelector("#scriptVelocidadedeVento3");
+var vv4 = document.querySelector("#scriptVelocidadedeVento4");
+var vv5 = document.querySelector("#scriptVelocidadedeVento5");
+var vv6 = document.querySelector("#scriptVelocidadedeVento6");
+var vv7 = document.querySelector("#scriptVelocidadedeVento7");
 // direção do vento 7 dias
-var dv1 = document.querySelector("#scirptDirecaoVento1")
-var dv2 = document.querySelector("#scirptDirecaoVento2")
-var dv3 = document.querySelector("#scirptDirecaoVento3")
-var dv4 = document.querySelector("#scirptDirecaoVento4")
-var dv5 = document.querySelector("#scirptDirecaoVento5")
-var dv6 = document.querySelector("#scirptDirecaoVento6")
-var dv7 = document.querySelector("#scirptDirecaoVento7")
+var dv1 = document.querySelector("#scriptDirecaoVento1")
+var dv2 = document.querySelector("#scriptDirecaoVento2")
+var dv3 = document.querySelector("#scriptDirecaoVento3")
+var dv4 = document.querySelector("#scriptDirecaoVento4")
+var dv5 = document.querySelector("#scriptDirecaoVento5")
+var dv6 = document.querySelector("#scriptDirecaoVento6")
+var dv7 = document.querySelector("#scriptDirecaoVento7")
 // umidade relativa do ar 7 dias
 var uv1 = document.querySelector("#scriptUmidadeRelativa1")
 var uv2 = document.querySelector("#scriptUmidadeRelativa2")
