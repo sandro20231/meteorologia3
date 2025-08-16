@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function (e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+
     console.log("DOM carregado");
     console.log(document.getElementById("btn"));
     // botão de buscas digitadas
@@ -153,28 +153,27 @@ document.addEventListener('DOMContentLoaded', function (e) {
     })
 
     // buscar local salvo
-    var btnSalvo = document.querySelector('#btnBuscarLocalSalvoScript');
-    var select = document.querySelector('#select');
-    btnSalvo.addEventListener('click', function (e) {
-        e.preventDefault();
 
-        let latitude = select.value;
-    })
+
+
 
     // buscando dados por seleção
-    var b = document.querySelector("#btn");
-    console.log(b);
+    let b = document.getElementById("btn");
+
     if (b) {
 
-        b.addEventListener('click', function (e) {
-            e.preventDefault();
-            console.log("Botão clicado!");
-            let latitude2 = document.getElementById('latitudeBusca');
-            let longitude2 = document.getElementById('longitudeBusca');
-            console.log(latitude2);
-            console.log(longitude2);
-            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude.value}&longitude=${longitude.value}&hourly=temperature_2m,relativehumidity_2m,precipitation,weathercode,windspeed_10m,winddirection_10m&timezone=auto`)
+        b.addEventListener('click', function () {
 
+
+            let latitude2 = document.querySelector('#latitudeBusca');
+
+            let longitude2 = document.querySelector('#longitudeBusca');
+            let lat = parseFloat(latitude2.innerText.trim());
+            let lon = parseFloat(longitude2.innerText.trim());
+
+            console.log(latitude2, longitude2)
+            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,relativehumidity_2m,precipitation,weathercode,windspeed_10m,winddirection_10m&timezone=auto`)
+                .then(response => response.json())
                 .then((data) => {
 
                     console.log(data)
@@ -242,7 +241,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 })
         })
     }
-
 
 
 

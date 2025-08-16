@@ -228,3 +228,23 @@ a:activate {
 select {
     padding: 5px;
 }
+
+#formpai {
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+#btnLogin {
+    margin-bottom: 5px;
+}
+
+.ll3 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

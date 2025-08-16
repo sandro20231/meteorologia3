@@ -1,12 +1,16 @@
 {% extends "t2/layout.html" %}
 {% block body %}
-<h2>Complete seu acesso:</h2>
-<form action="{% url 'login'%}" method="post">
-    {% csrf_token %}
-    <label><strong>Usuário:</strong></label><br>
-    <input type="text" name="username"><br>
-    <label><strong>Senha:</strong></label><br>
-    <input type="password" name="password"><br>
-    <button type="submit" id="btnLogin">Enviar</button>
-</form>
+<div id="formpai">
+    <h2>Complete seu acesso:</h2>
+    <form action="{% url 'login'%}" method="post">
+        {% csrf_token %}
+        <label><strong>Usuário:</strong></label><br>
+        <input type="text" name="username"><br>
+        <label><strong>Senha:</strong></label><br>
+        <input type="password" name="password"><br>
+        <button type="submit" id="btnLogin">Enviar</button>
+    </form>
+</div>
+
+
 {% endblock %}
